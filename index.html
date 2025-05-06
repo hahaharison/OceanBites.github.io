@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanBites.com</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .logout-btn {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Customer Support Button */
+        .support-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .support-btn:hover {
+            background-color: #2980b9;
+        }
+                    .home-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 30px;
+                padding: 40px;
+                background: linear-gradient(135deg, #87CEFA, #4682B4);
+                border-radius: 15px;
+                box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+                max-width: 1000px;
+                margin: 40px auto;
+                color: #fff;
+            }
+
+            .home-image img {
+                width: 350px;
+                height: auto;
+                border-radius: 15px;
+                box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .vision-mission {
+                max-width: 550px;
+                text-align: left;
+            }
+
+            .vision-mission h2 {
+                font-size: 26px;
+                margin-bottom: 15px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .vision-mission p {
+                font-size: 18px;
+                line-height: 1.7;
+                margin-bottom: 15px;
+            }
+
+            .learn-more-btn {
+                display: inline-block;
+                padding: 12px 20px;
+                background: #FFD700;
+                color: #333;
+                font-weight: bold;
+                text-decoration: none;
+                border-radius: 50px;
+                transition: 0.3s ease;
+            }
+
+            .learn-more-btn:hover {
+                background: #FFC107;
+                transform: translateY(-2px);
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+        
+    </style>
+</head>
+<body onload="checkLoginStatus()">
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" target="content-frame">Home</a></li>
+                <li><a href="about.html" target="content-frame">About</a></li>
+                <li><a href="feedback.html" target="content-frame">Feedback</a></li>
+                <li><a href="services.html" target="content-frame">Services</a></li>
+                <li><a href="blog.html" target="content-frame">Blog</a></li>
+                <li><a href="faq.html" target="content-frame">FAQ</a></li>
+                <li><a href="contact.html" target="content-frame">Contact</a></li>
+                <li><a href="downloadable.html" target="content-frame">Resources</a></li>
+                <li><a href="How it works.html" target="content-frame">How it Works</a></li>
+                <li><a href="product.html" target="content-frame">Product</a></li>
+                <li><button class="logout-btn" onclick="logout()">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="home-section">
+        <div class="home-content">
+            <h1>Ocean Bites</h1>
+            <p>Explore the world of delicious seafood dishes that I have crafted.</p>
+        </div>
+        <div class="home-image">
+            <img src="1.jpg.jpg" alt="Delicious Seafood">
+            <div class="vision-mission">
+                <h2>🌊 Our Vision & Mission</h2>
+                <p>At <strong>Ocean Bites</strong>, we aspire to be a leading name in the seafood industry, delivering fresh, high-quality, and sustainable seafood experiences that delight our customers.</p>
+                <p>We are committed to crafting delicious seafood dishes with passion, using the finest ingredients while promoting <strong>ethical sourcing and sustainability</strong>.</p>
+                <p>Our goal is to create a welcoming atmosphere where food lovers can indulge in the rich flavors of the ocean, making every meal a <strong>memorable experience</strong>.</p>
+                <a href="about.html" class="learn-more-btn">Learn More</a>
+            </div>
+        </div>
+        
+        
+    </section>
+
+    <!-- Customer Support Button -->
+    <button class="support-btn" onclick="openSupport()">💬 Customer Support</button>
+
+    <script>
+        function logout() {
+            localStorage.removeItem("loggedInUser");
+            sessionStorage.clear();
+            window.location.href = "loginregister.html";
+        }
+
+        function checkLoginStatus() {
+            if (!localStorage.getItem("loggedInUser")) {
+                window.location.href = "loginregister.html";
+            }
+        }
+
+        function openSupport() {
+            alert("Customer Support will be available soon!");
+        }
+    </script>
+
+    <footer>
+        <p><a href="terms.html">Terms of Service & Privacy Policy</a></p>
+    </footer>
+</body>
+</html>

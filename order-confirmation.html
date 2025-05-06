@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #27ae60;
+        }
+
+        .order-details {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .payment-info {
+            background: #eef5e2;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #e67e22;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background-color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Thank You for Your Order! 🎉</h1>
+        <p class="order-details">Your order for <strong id="product-name"></strong> has been placed successfully.</p>
+        <p class="order-details">A confirmation email will be sent to: <strong id="customer-email"></strong></p>
+
+        <div class="payment-info">
+            <h3>Payment Details</h3>
+            <p><strong>Method:</strong> <span id="payment-method"></span></p>
+            <div id="payment-extra"></div>
+        </div>
+
+        <a href="index.html" class="home-btn">Back to Home</a>
+    </div>
+
+    <script>
+        // Retrieve order details from URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const productName = params.get("product") || "Unknown Product";
+        const customerEmail = params.get("email") || "your email";
+        const paymentMethod = params.get("payment") || "Not Specified";
+
+        // Display order details
+        document.getElementById("product-name").innerText = productName;
+        document.getElementById("customer-email").innerText = customerEmail;
+        document.getElementById("payment-method").innerText = paymentMethod;
+
+        // Display additional payment details
+        const paymentExtra = document.getElementById("payment-extra");
+        if (paymentMethod === "credit-card") {
+            paymentExtra.innerHTML = `<p>Please check your email for payment processing instructions.</p>`;
+        } else if (paymentMethod === "paypal") {
+            paymentExtra.innerHTML = `<p>Please complete your payment via PayPal.</p>`;
+        } else if (paymentMethod === "gcash") {
+            paymentExtra.innerHTML = `<p>Send your payment to <strong>GCash #: 09123456789</strong> and upload the receipt.</p>`;
+        } else if (paymentMethod === "paymaya") {
+            paymentExtra.innerHTML = `<p>Send your payment to <strong>PayMaya #: 09876543210</strong> and upload the receipt.</p>`;
+        } else {
+            paymentExtra.innerHTML = `<p>Cash on Delivery - You can pay upon receiving your order.</p>`;
+        }
+    </script>
+
+</body>
+</html>

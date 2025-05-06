@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanBites.com</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+              /* Services Section */
+.services-section {
+    background: #f9f9f9;
+    padding: 60px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.services-content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.services-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #444;
+}
+
+/* Service Card Styling */
+.service {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Image Styling */
+.service img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.service h3 {
+    font-size: 1.6rem;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-content {
+        padding: 0 15px;
+    }
+
+    .service {
+        padding: 15px;
+    }
+
+    .service img {
+        max-width: 100%;
+    }
+
+    .service h3 {
+        font-size: 1.4rem;
+    }
+
+    .service p {
+        font-size: 0.95rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" target="content-frame">Home</a></li>
+                <li><a href="about.html" target="content-frame">About</a></li>
+                <li><a href="feedback.html" target="content-frame">Feedback</a></li>
+                <li><a href="services.html" target="content-frame">Services</a></li>
+                <li><a href="blog.html" target="content-frame">Blog</a></li>
+                <li><a href="faq.html" target="content-frame">FAQ</a></li>
+                <li><a href="contact.html" target="content-frame">Contact</a></li>
+                <li><a href="downloadable.html" target="content-frame">Resources</a></li>
+                <li><a href="How it works.html" target="content-frame">How it Works</a></li>
+                <li><a href="product.html" target="content-frame">Product</a></li>
+                <button class="logout-btn">Logout</button>
+               
+            </ul>
+        </nav>
+    </header>
+    <section id="services" class="services-section">
+        <div class="services-content">
+            <h2>Our Services</h2>
+            
+            <div class="service">
+                <img src="17.jpg" alt="Catering Services">
+                <h3>Catering Services</h3>
+                <p>We offer seafood catering for events, ensuring a gourmet seafood experience for your guests.</p>
+            </div>
+    
+            <div class="service">
+                <img src="18.jpg" alt="Private Chef">
+                <h3>Private Chef</h3>
+                <p>Enjoy an exclusive dining experience with our private seafood chef services for intimate gatherings.</p>
+            </div>
+    
+            <div class="service">
+                <img src="19.jpg" alt="Cooking Classes">
+                <h3>Cooking Classes</h3>
+                <p>Learn the art of seafood cooking with our hands-on classes taught by professional chefs.</p>
+            </div>
+        </div>
+    </section>
+    

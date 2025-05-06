@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Support</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Chat button */
+        .chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-btn:hover {
+            background: #27ae60;
+        }
+
+        /* Chatbox */
+        .chatbox {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .chatbox-header {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .chatbox-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chatbox-body {
+            height: 250px;
+            padding: 15px;
+            overflow-y: auto;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            background: #f9f9f9;
+        }
+
+        .chatbox-footer {
+            padding: 10px;
+            display: flex;
+            border-top: 1px solid #ddd;
+            background: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .chatbox-footer input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .chatbox-footer button {
+            background: #2ecc71;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            margin-left: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .chatbox-footer button:hover {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Chat Button -->
+    <button class="chat-btn" onclick="toggleChat()">💬 Chat Support</button>
+
+    <!-- Chat Box -->
+    <div class="chatbox" id="chatbox">
+        <div class="chatbox-header">
+            Customer Support
+            <button onclick="toggleChat()">×</button>
+        </div>
+        <div class="chatbox-body" id="chat-body">
+            <p><strong>Support:</strong> Hello! How can we assist you today?</p>
+        </div>
+        <div class="chatbox-footer">
+            <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatbox = document.getElementById("chatbox");
+            chatbox.style.display = chatbox.style.display === "flex" ? "none" : "flex";
+        }
+
+        function sendMessage() {
+            const input = document.getElementById("chat-input");
+            const message = input.value.trim();
+            if (message) {
+                const chatBody = document.getElementById("chat-body");
+                chatBody.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
+                input.value = "";
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                // Simulate support response
+                setTimeout(() => {
+                    chatBody.innerHTML += `<p><strong>Support:</strong> Thank you for reaching out! We will assist you shortly.</p>`;
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+    </script>
+
+</body>
+</html>

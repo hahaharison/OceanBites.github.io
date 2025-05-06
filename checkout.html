@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .product-info {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .checkout-btn {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background-color: #d35400;
+        }
+
+        .payment-method {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .payment-method img {
+            width: 150px;
+            margin: 10px;
+        }
+
+        #receipt-upload {
+            display: none;
+            margin-top: 15px;
+        }
+
+        #receipt-upload label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Back Button Styling */
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Back Button -->
+    <button onclick="history.back()" class="back-btn">Back</button>
+
+    <div class="container">
+        <h1>Checkout</h1>
+        <p class="product-info">You are purchasing: <strong id="product-name"></strong></p>
+
+        <form id="checkout-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Shipping Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="payment">Payment Method</label>
+            <select id="payment" name="payment" onchange="showPaymentOptions()" required>
+                <option value="">Select a payment method</option>
+                <option value="gcash">GCash</option>
+                <option value="paymaya">PayMaya</option>
+                <option value="cod">Cash on Delivery</option>
+            </select>
+
+            <div id="gcash-method" class="payment-method">
+                <h3>Send your payment via GCash</h3>
+                <img src="gcash.png" alt="GCash">
+                <p>Send to: <strong>09123456789</strong></p>
+            </div>
+
+            <div id="paymaya-method" class="payment-method">
+                <h3>Send your payment via PayMaya</h3>
+                <img src="paymaya.png" alt="PayMaya">
+                <p>Send to: <strong>09876543210</strong></p>
+            </div>
+
+            <div id="receipt-upload">
+                <label for="receipt">Upload Payment Receipt:</label>
+                <input type="file" id="receipt" name="receipt" accept="image/*">
+            </div>
+
+            <button type="submit" class="checkout-btn">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        // Get product name from URL
+        const params = new URLSearchParams(window.location.search);
+        const productName = params.get("product") || "Unknown Product";
+        document.getElementById("product-name").innerText = productName;
+
+        // Show payment options and receipt upload dynamically
+        function showPaymentOptions() {
+            document.querySelectorAll(".payment-method").forEach(el => el.style.display = "none");
+            document.getElementById("receipt-upload").style.display = "none";
+
+            const selectedPayment = document.getElementById("payment").value;
+            if (selectedPayment === "gcash") {
+                document.getElementById("gcash-method").style.display = "block";
+                document.getElementById("receipt-upload").style.display = "block";
+            } else if (selectedPayment === "paymaya") {
+                document.getElementById("paymaya-method").style.display = "block";
+                document.getElementById("receipt-upload").style.display = "block";
+            }
+        }
+
+        // Handle form submission
+        document.getElementById("checkout-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const paymentMethod = document.getElementById("payment").value;
+            const receiptFile = document.getElementById("receipt").files[0];
+
+            if ((paymentMethod === "gcash" || paymentMethod === "paymaya") && !receiptFile) {
+                alert("Please upload your payment receipt before placing the order.");
+                return;
+            }
+
+            let receiptFileName = receiptFile ? receiptFile.name : "None";
+
+            window.location.href = `order-confirmation.html?product=${encodeURIComponent(productName)}&email=${encodeURIComponent(email)}&payment=${encodeURIComponent(paymentMethod)}&receipt=${encodeURIComponent(receiptFileName)}`;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloadable Materials - OceanBites.com</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+    background-color: #111;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+       
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+        
+.navbar ul li {
+    margin: 0 20px; 
+        }
+        
+.navbar ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.0rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    /}
+
+        .navbar a {
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #e67e22;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .download-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .download-list li {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .download-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .back-home-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        .back-home-btn:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+            }
+
+            .navbar li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" target="content-frame">Home</a></li>
+                <li><a href="about.html" target="content-frame">About</a></li>
+                <li><a href="feedback.html" target="content-frame">Feedback</a></li>
+                <li><a href="services.html" target="content-frame">Services</a></li>
+                <li><a href="blog.html" target="content-frame">Blog</a></li>
+                <li><a href="faq.html" target="content-frame">FAQ</a></li>
+                <li><a href="contact.html" target="content-frame">Contact</a></li>
+                <li><a href="downloadable.html" target="content-frame">Resources</a></li>
+                <li><a href="How it works.html" target="content-frame">How it Works</a></li>
+                <li><a href="product.html" target="content-frame">Product</a></li>
+    <button class="logout-btn">Logout</button>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Downloadable Materials</h2>
+        <p>Here are some helpful resources for you to download.</p>
+
+        <ul class="download-list">
+            <li>
+                <span>Seafood Cooking Guide (PDF)</span>
+                <a href="downloads/seafood_guide.pdf" class="download-btn" download>Download</a>
+            </li>
+            <li>
+                <span>OceanBites Menu (PDF)</span>
+                <a href="downloads/menu.pdf" class="download-btn" download>Download</a>
+            </li>
+            <li>
+                <span>Healthy Eating Guide (PDF)</span>
+                <a href="downloads/healthy_eating.pdf" class="download-btn" download>Download</a>
+            </li>
+            <li>
+                <span>Seafood Recipes (PDF)</span>
+                <a href="downloads/recipes.pdf" class="download-btn" download>Download</a>
+            </li>
+            <li>
+                <span>OceanBites Logo (PNG)</span>
+                <a href="downloads/logo.png" class="download-btn" download>Download</a>
+            </li>
+        </ul>
+
+        <a href="index.html" class="back-home-btn">Back to Home</a>
+    </div>
+
+
+    <button class="support-btn">Customer Support</button>
+
+    
+</body>
+</html>

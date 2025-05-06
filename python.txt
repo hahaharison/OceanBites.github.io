@@ -1,0 +1,12 @@
+print(animate_text("Grade Computational")
+
+AppDev= int (input ("App Dev Grade"))
+Accounting= int (input ("Accounting Grade"))
+RecreationalSports= int (input ("Recreational Sports Grade"))
+Socsci= int (input ("Soc Sci Grade"))
+Statistics= int (input ("Statistics Grade"))
+DiscreteStructure= int (input ("Discrete Structure Grade"))
+ArtAppreciation= int (input ("Art Appreciation Grade"))
+Ethics = int (input ("Ethics Grade"))
+
+

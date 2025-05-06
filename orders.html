@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Order List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Receipt</th>
+                </tr>
+            </thead>
+            <tbody id="order-list"></tbody>
+        </table>
+
+        <button class="clear-btn" onclick="clearOrders()">Clear Orders</button>
+        <a class="back-link" href="checkout.html">Back to Checkout</a>
+    </div>
+
+    <script>
+        function loadOrders() {
+            const orders = JSON.parse(localStorage.getItem("orders")) || [];
+            const orderList = document.getElementById("order-list");
+
+            orderList.innerHTML = "";
+
+            orders.forEach(order => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${order.name}</td>
+                    <td>${order.email}</td>
+                    <td>${order.address}</td>
+                    <td>${order.product}</td>
+                    <td>$${order.price.toFixed(2)}</td>
+                    <td>${order.quantity}</td>
+                    <td>$${order.total.toFixed(2)}</td>
+                    <td>${order.paymentMethod}</td>
+                    <td>${order.receiptFileName}</td>
+                `;
+                orderList.appendChild(row);
+            });
+        }
+
+        function clearOrders() {
+            localStorage.removeItem("orders");
+            loadOrders();
+        }
+
+        window.onload = loadOrders;
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OceanBites.com</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+            .faq-section {
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+    padding: 60px 15%;
+    text-align: center;
+}
+
+.faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+
+.faq-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* FAQ Items */
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #3498db;
+    transition: all 0.3s ease-in-out;
+}
+
+.faq-question:hover {
+    color: #2980b9;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.faq-answer p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+    padding: 10px 15px;
+    text-align: justify;
+}
+
+
+.arrow {
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.faq-item.active .arrow {
+    transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html" target="content-frame">Home</a></li>
+                <li><a href="about.html" target="content-frame">About</a></li>
+                <li><a href="feedback.html" target="content-frame">Feedback</a></li>
+                <li><a href="services.html" target="content-frame">Services</a></li>
+                <li><a href="blog.html" target="content-frame">Blog</a></li>
+                <li><a href="faq.html" target="content-frame">FAQ</a></li>
+                <li><a href="contact.html" target="content-frame">Contact</a></li>
+                <li><a href="downloadable.html" target="content-frame">Resources</a></li>
+                <li><a href="How it works.html" target="content-frame">How it Works</a></li>
+                <li><a href="product.html" target="content-frame">Product</a></li>
+    <button class="logout-btn">Logout</button>
+                
+            </ul>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="faq" class="faq-section">
+        <div class="faq-content">
+            <h2>Frequently Asked Questions</h2>
+    
+            <div class="faq-item">
+                <button class="faq-question">What types of seafood do you offer? <span class="arrow">&#9662;</span></button>
+                <div class="faq-answer">
+                    <p>We offer a variety of seafood, including shrimp, lobster, crab, salmon, and many more! All are sourced fresh and sustainably.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">Do you offer vegan options? <span class="arrow">&#9662;</span></button>
+                <div class="faq-answer">
+                    <p>Yes! We have a selection of plant-based dishes for our vegan guests, featuring the freshest vegetables and plant-based proteins.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="faq-question">Can I book a private chef for events? <span class="arrow">&#9662;</span></button>
+                <div class="faq-answer">
+                    <p>Absolutely! We offer private chef services for small gatherings and events. Get in touch with us to plan your special event!</p>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+   <script>
+ document.querySelectorAll(".faq-question").forEach(button => {
+        button.addEventListener("click", () => {
+            const faqItem = button.parentElement;
+            faqItem.classList.toggle("active");
+            document.querySelectorAll(".faq-item").forEach(item => {
+                if (item !== faqItem) {
+                    item.classList.remove("active");
+                }
+            });
+        });
+    });
+   </script>
+   
+    
